@@ -5,7 +5,7 @@ import numpy as np
 
 # Load pre-trained T5 model and tokenizer
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-tokenizer = AutoTokenizer.from_pretrained('t5-small')
+tokenizer = AutoTokenizer.from_pretrained('t5-base')
 model = T5ForConditionalGeneration.from_pretrained('t5-small', return_dict=True)
 
 # Move model to device (GPU or CPU)
