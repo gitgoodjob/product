@@ -1,14 +1,11 @@
 import streamlit as st
 import torch
-from transformers import GPTJForCausalLM
-import torch
-from transformers import AutoModelForCausalLM, AutoTokenizer
+from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 
-
-device = device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-model = AutoModelForCausalLM.from_pretrained("EleutherAI/gpt-j-6B")
-tokenizer = AutoTokenizer.from_pretrained("EleutherAI/gpt-j-6B")
-
+# Load pre-trained GPT-2 model and tokenizer
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+tokenizer = AutoTokenizer.from_pretrained("gpt2")
+model = AutoModelForSeq2SeqLM.from_pretrained("gpt2")
 
 # Move model to device (GPU or CPU)
 model.to(device)
