@@ -1,12 +1,12 @@
 import streamlit as st
 import torch
-from transformers import T5ForConditionalGeneration, T5Tokenizer
+from transformers import T5ForConditionalGeneration, AutoTokenizer
 import numpy as np
 
 # Load pre-trained T5 model and tokenizer
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+tokenizer = AutoTokenizer.from_pretrained('t5-small')
 model = T5ForConditionalGeneration.from_pretrained('t5-small', return_dict=True)
-tokenizer = T5Tokenizer.from_pretrained('t5-small')
 
 # Move model to device (GPU or CPU)
 model.to(device)
